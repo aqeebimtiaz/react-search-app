@@ -12,8 +12,9 @@ class TableData extends React.Component {
 	render() {
 		return (
 		<div>
-			<p style={{display: 'flex',flexDirection: 'row'}}>Manager: {this.props.rowdata.shop_manager} <a className="shop-number" href={"tel:"+this.props.rowdata.shop_mobile}> <i className="fa fa-phone md-view"></i><span className="l-view">{this.props.rowdata.shop_mobile}</span></a></p>
-			<p> {this.props.data} </p>
+			<p className="table-data-display">Manager: {this.props.rowdata.shop_manager} <a className="shop-number" href={"tel:"+this.props.rowdata.shop_mobile}> <i className="fa fa-phone fa-lg md-view"></i><span className="l-view">({this.props.rowdata.shop_mobile})</span></a></p>
+
+			<p className="table-data-display"> <span>{this.props.data}</span> <a className="shop-number" href={this.props.rowdata.map_link}><i className="fa fa-map-marker fa-2x md-view"></i> <span className="l-view">Show on Map</span></a></p>
 		</div>);
 	}
 };
@@ -26,7 +27,7 @@ class TableTitle extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2> {this.props.title} <a href={this.props.mapLink}><i className="fa fa-map-marker"></i></a></h2>
+				<h2> {this.props.title} ({this.props.shopCode})</h2>
 			</div>
 		);
 	}
@@ -78,9 +79,9 @@ class Table extends React.Component {
 				key = row.shop_name.toLowerCase();
 			}
 
-			rowsTitle.push(<TableTitle key={keyCount+=1} title={row.shop_name} mapLink={row.map_link}/>);
+			rowsTitle.push(<TableTitle key={keyCount+=1} title={row.shop_name} shopCode={row.shop_code}/>);
 			if (searchterm != "") rowsTitle.push(<SearchMatch match={key} />);
-			rowsTitle.push(<TableData key={keyCount+=1} data={row.shop_adress} manager={row.shop_manager} contact={row.shop_mobile} rowdata={row}/>);
+			rowsTitle.push(<TableData key={keyCount+=1} data={row.shop_adress} manager={row.shop_manager} contact={row.shop_mobile} rowdata={row} />);
 		});
 
 		// Then render all. Render using childs. Send them prop.title and prop.data

@@ -49,6 +49,12 @@
   padding-bottom: 20px;
 }
 
+.table-data-display{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* textarea, input { outline: none; } */
 
 h4 {

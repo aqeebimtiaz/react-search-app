@@ -21,7 +21,7 @@ export default class Search extends React.Component {
 		return (
 			<input
 				type="text"
-				placeholder="Start Typing"
+				placeholder="Search for shops"
 				value={this.props.searchTerm}
 				// value={this.state.userInput}
 				onChange={this.filterList}
