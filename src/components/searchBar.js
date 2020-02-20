@@ -10,7 +10,7 @@ export default class Search extends React.Component {
 	}
 	filterList(event) {
 		this.props.userInput(event.target.value);
-		console.log('event.target.value ' + event.target.value)
+		// console.log('event.target.value ' + event.target.value)
 		// this.props.userInput = event.target.value
 		this.setState({
 			userInput: event.target.value

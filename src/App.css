@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.whole-div{
+  width: 100%;
+}
+#app {
+  margin: auto;
+  color: #4a4a4a;
+  /* margin-top: 20px;
+  margin-left: 50px; */
+  width: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+.shop-number{
+  padding-left: 1rem;
+  color: #c53636;
+}
+.md-view{
+  display: none;
+}
+.l-view{
+  display: block;
+}
+@media only screen and (max-width: 768px){
+  .shop-number{
+    text-decoration: none;
+  }
+  .md-view{
+    display: block;
+  }
+  .l-view{
+    display: none;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#app input {
+  width: 100%;
+  border: 0;
+  background: #eee;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding-bottom: 20px;
 }
+
+/* textarea, input { outline: none; } */
+
+h4 {
+  font-size: 15px;
+  color: red;
+}
+
