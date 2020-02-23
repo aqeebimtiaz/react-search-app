@@ -6,12 +6,14 @@ import Search from "./components/searchBar"
 
 // Table Data
 class TableData extends React.Component {
+	// eslint-disable-next-line
 	constructor(props) {
 		super(props);
 	}
 	render() {
 		return (
 		<div>
+			<h2> {this.props.rowdata.shop_name} ({this.props.rowdata.shop_code})</h2>
 			<p className="table-data-display">Manager: {this.props.rowdata.shop_manager} <a className="shop-number" href={"tel:"+this.props.rowdata.shop_mobile}> <i className="fa fa-phone fa-lg md-view"></i><span className="l-view">({this.props.rowdata.shop_mobile})</span></a></p>
 
 			<p className="table-data-display"> <span>{this.props.data}</span> <a className="shop-number" href={this.props.rowdata.map_link}><i className="fa fa-map-marker fa-2x md-view"></i> <span className="l-view">Show on Map</span></a></p>
@@ -20,7 +22,9 @@ class TableData extends React.Component {
 };
 
 // Table Element
+// eslint-disable-next-line
 class TableTitle extends React.Component {
+	// eslint-disable-next-line
 	constructor(props) {
 		super(props);
 	}
@@ -33,6 +37,7 @@ class TableTitle extends React.Component {
 	}
 };
 
+// eslint-disable-next-line
 class SearchMatch extends React.Component {
 	constructor(props) {
 		super(props);
@@ -49,15 +54,16 @@ class SearchMatch extends React.Component {
 
 // Table
 class Table extends React.Component {
+	// eslint-disable-next-line
 	constructor(props) {
 		super(props);
 	}
 	render() {
-		let keyCount = 0;
 		// We need to get each row and store it in an array
 		var rowsTitle = [];
-		var search = [];
+		// var search = [];
 		var searchterm = this.props.searchTerm; // need this or it doesnt work
+		// eslint-disable-next-line
 		var key = "";
 		this.props.data.forEach(function (row) {
 			if (
@@ -79,9 +85,9 @@ class Table extends React.Component {
 				key = row.shop_name.toLowerCase();
 			}
 
-			rowsTitle.push(<TableTitle key={keyCount+=1} title={row.shop_name} shopCode={row.shop_code}/>);
-			if (searchterm != "") rowsTitle.push(<SearchMatch match={key} />);
-			rowsTitle.push(<TableData key={keyCount+=1} data={row.shop_adress} manager={row.shop_manager} contact={row.shop_mobile} rowdata={row} />);
+			// rowsTitle.push(<TableTitle key={row.id} title={row.shop_name} shopCode={row.shop_code}/>);
+			// if (searchterm !== "") rowsTitle.push(<SearchMatch match={key} />);
+			rowsTitle.push(<TableData key={'details'+row.id} data={row.shop_adress} manager={row.shop_manager} contact={row.shop_mobile} rowdata={row} />);
 		});
 
 		// Then render all. Render using childs. Send them prop.title and prop.data
